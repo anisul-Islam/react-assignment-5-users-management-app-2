@@ -1,20 +1,43 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 import Search from './components/Search';
 import Users from './components/Users';
 
 const App = () => {
+  const [users, setUsers] = useState('');
+  const [isLoading, setIsloading] = useState(true);
+  const [error, setError] = useState('');
   // Task 2: use custom hook
   // get data, error, isLoading states from custom hook here
   // use url: 'https://jsonplaceholder.typicode.com/users'
 
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+        setIsloading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsloading(false);
+      });
+  }, []);
+
   // Task 3: delete user
   // get the id from User.js
-  const handleDeleteUser = (id) => {};
+  const handleDeleteUser = (id) => {
+    const filter = users.filter((user) => user.id !== id);
+    setUsers(filter);
+  };
 
   // Task 4: search user
   // get the text from Search.js
-  const handleSearch = (searchText) => {};
+  const handleSearch = (searchText) => {
+    console.log(searchText, users);
+  };
 
   return (
     <div className="container">
@@ -23,8 +46,8 @@ const App = () => {
       {error && <p>{error}</p>}
 
       {/* Needs to pass functions from here for state lifting  */}
-      <Search onHandleSearch={} />
-      {users.length > 1 && <Users users={usersCopy} onHandleDeleteUser={} />}
+      {<Search onHandleSearch={handleSearch} />}
+      {users.length > 1 && <Users users={users} onHandleDeleteUser={handleDeleteUser} />}
     </div>
   );
 };

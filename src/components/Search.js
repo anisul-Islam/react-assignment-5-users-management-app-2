@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Search = ({ onHandleSearch }) => {
   const [search, setSearch] = useState('');
-
   useEffect(() => {
     onHandleSearch(search);
   }, [search]);
