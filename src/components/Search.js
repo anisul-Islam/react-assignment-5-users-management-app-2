@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Search = ({ onHandleSearch }) => {
   const [search, setSearch] = useState('');
-
   useEffect(() => {
     onHandleSearch(search);
   }, [search]);
@@ -16,7 +15,7 @@ const Search = ({ onHandleSearch }) => {
       <input
         type="text"
         name="search"
-        placeholder="search country"
+        placeholder="search name"
         value={search}
         onChange={handleChange}
       />
