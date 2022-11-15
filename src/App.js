@@ -6,9 +6,10 @@ import Search from './components/Search';
 import Users from './components/Users';
 
 const App = () => {
-  const [users, setUsers] = useState('');
+  const [users, setUsers] = useState([]);
   const [isLoading, setIsloading] = useState(true);
   const [error, setError] = useState('');
+  const [data, setData] = useState([users]);
   // Task 2: use custom hook
   // get data, error, isLoading states from custom hook here
   // use url: 'https://jsonplaceholder.typicode.com/users'
@@ -24,7 +25,7 @@ const App = () => {
         setError(error.message);
         setIsloading(false);
       });
-  }, []);
+  }, [data]);
 
   // Task 3: delete user
   // get the id from User.js
@@ -36,7 +37,10 @@ const App = () => {
   // Task 4: search user
   // get the text from Search.js
   const handleSearch = (searchText) => {
-    console.log(searchText, users);
+    const filteredData = users.filter((user) =>
+      user.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setData(filteredData);
   };
 
   return (
@@ -47,7 +51,7 @@ const App = () => {
 
       {/* Needs to pass functions from here for state lifting  */}
       {<Search onHandleSearch={handleSearch} />}
-      {users.length > 1 && <Users users={users} onHandleDeleteUser={handleDeleteUser} />}
+      {users.length > 1 && <Users users={data} onHandleDeleteUser={handleDeleteUser} />}
     </div>
   );
 };

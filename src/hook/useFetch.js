@@ -1,31 +1,31 @@
-// import React from 'react';
-// import { useEffect } from 'react';
-// import { useState } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-// const useFetch = (url) => {
-//   // Task 1: complete this custom hook
-//   // step1: create 3 states: data, isLoading, error
-//   // step2: fetch data & handle error
-//   // step3: return 3 states
-//   const [users, setUsers] = useState('');
-//   const [isloading, setIsLoading] = useState(true);
-//   const [error, setError] = useState('');
+const useFetch = (url) => {
+  // Task 1: complete this custom hook
+  // step1: create 3 states: data, isLoading, error
+  // step2: fetch data & handle error
+  // step3: return 3 states
+  const [users, setUsers] = useState('');
+  const [isloading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
-//   useEffect(() => {
-//     fetch(url)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setIsLoading(false);
-//         setUsers(data);
-//         console.log(data);
-//       })
-//       .catch((error) => {
-//         setError(error.message);
-//         setIsLoading(false);
-//       });
-//   }, [url]);
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setIsLoading(false);
+        setUsers(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+  }, [url]);
 
-//   return { users, isloading, error };
-// };
+  return { users, isloading, error };
+};
 
-// export default useFetch;
+export default useFetch;
