@@ -14,7 +14,7 @@ const App = () => {
   const [usersCopy, setUserCopy] = useState(users);
 
   useEffect(() => {
-    if (users?.length > 1) {
+    if (users.length) {
       setUserCopy(users);
     }
   }, [users]);
@@ -22,17 +22,17 @@ const App = () => {
   // Task 3: delete user
   // get the id from User.js
   const handleDeleteUser = (id) => {
-    const filter = users.filter((user) => user.id !== id);
-    setUserCopy(filter);
+    const restUser = usersCopy.filter((user) => user.id !== id);
+    setUserCopy(restUser);
   };
 
   // Task 4: search user
   // get the text from Search.js
   const handleSearch = (searchText) => {
-    const filteredData = users.filter((user) =>
+    const searchName = users.filter((user) =>
       user.name.toLowerCase().includes(searchText.toLowerCase())
     );
-    setUserCopy(filteredData);
+    setUserCopy(searchName);
   };
 
   return (
