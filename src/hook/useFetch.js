@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -7,7 +6,7 @@ const useFetch = (url) => {
   // step1: create 3 states: data, isLoading, error
   // step2: fetch data & handle error
   // step3: return 3 states
-  const [users, setUsers] = useState('');
+  const [users, setUsers] = useState([]);
   const [isloading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -17,13 +16,12 @@ const useFetch = (url) => {
       .then((data) => {
         setIsLoading(false);
         setUsers(data);
-        console.log(data);
       })
       .catch((error) => {
         setError(error.message);
         setIsLoading(false);
       });
-  }, [url]);
+  }, []);
 
   return { users, isloading, error };
 };
