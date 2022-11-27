@@ -1,1 +1,1 @@
-### [Click here to see the project demo](https://users-mgt-app-2.netlify.app/)
+### [Click here to see the project demo](https://management-app-by-programming-russ.netlify.app/)
