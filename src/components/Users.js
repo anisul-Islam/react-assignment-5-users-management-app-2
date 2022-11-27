@@ -1,9 +1,12 @@
+// eslint-disable-next-line
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import User from './User';
 
 const Users = (props) => {
+  const { users } = props;
+  console.log(users)
   return (
     <section className="users">
       {props.users.map((user) => (
