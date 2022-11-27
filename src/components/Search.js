@@ -6,6 +6,7 @@ const Search = ({ onHandleSearch }) => {
 
   useEffect(() => {
     onHandleSearch(search);
+    // eslint-disable-next-line
   }, [search]);
 
   const handleChange = (e) => {
