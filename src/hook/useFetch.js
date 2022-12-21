@@ -29,10 +29,22 @@ const useFetch = (url) => {
   // }, []);
 
   // writing an async function
+  const fetchData=async(url)=>{
+    try{
+      const reponse= await fetch(url)
+      const data= await reponse.json()
+      setisLoading(false)
+      setUsers(data)
+    }catch(error){
+      setError(error.message)
+    }
+  }
+
+
   useEffect(()=>{
-    
-  })
-  console.log(users)
+    fetchData(url)
+  },[])
+
   return {users,isLoading,error}
 
 };
