@@ -9,24 +9,29 @@ const useFetch = (url) => {
   const [isLoading,setisLoading]=useState(true)
   const [error,setError]=useState(null)
 
-  useEffect(() => {
-    fetch(url)
-    .then((res)=>{
-      setisLoading(false)
-      if(!res.ok){
-        throw new Error('data fetch error')
-      }
-      return res.json()
-    })
-    .then((data)=>{
-      setUsers(data)
-    })
-    .catch((error)=>{
-      setError(error.message)
-      setisLoading(false)
-    })
+  // useEffect(() => {
+  //   fetch(url)
+  //   .then((res)=>{
+  //     setisLoading(false)
+  //     if(!res.ok){
+  //       throw new Error('data fetch error')
+  //     }
+  //     return res.json()
+  //   })
+  //   .then((data)=>{
+  //     setUsers(data)
+  //   })
+  //   .catch((error)=>{
+  //     setError(error.message)
+  //     setisLoading(false)
+  //   })
 
-  }, []);
+  // }, []);
+
+  // writing an async function
+  useEffect(()=>{
+    
+  })
   console.log(users)
   return {users,isLoading,error}
 
