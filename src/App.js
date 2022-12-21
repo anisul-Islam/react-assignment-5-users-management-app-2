@@ -19,13 +19,13 @@ const App = () => {
   return (
     <div className="container">
       <h1>hi</h1>
-      {/* <h1 className="title">Users Management App</h1>
+      <h1 className="title">Users Management App</h1>
       {isLoading && <p>Loading users...</p>}
-      {error && <p>{error}</p>} */}
+      {error && <p>{error}</p>}
 
-      {/* Needs to pass functions from here for state lifting 
+      Needs to pass functions from here for state lifting 
       <Search onHandleSearch={} />
-      {users.length > 1 && <Users users={usersCopy} onHandleDeleteUser={} />} */}
+      {users.length > 1 && <Users users={usersCopy} onHandleDeleteUser={} />}
     </div>
   );
 };
