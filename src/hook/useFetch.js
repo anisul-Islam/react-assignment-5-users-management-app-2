@@ -27,7 +27,7 @@ const useFetch = (url) => {
     })
 
   }, []);
-
+  console.log(users)
   return {users,isLoading,error}
 
 };
