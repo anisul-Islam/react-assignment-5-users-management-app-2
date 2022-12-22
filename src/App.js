@@ -23,7 +23,14 @@ const App = () => {
 
   // Task 4: search user
   // get the text from Search.js
-  // const handleSearch = (searchText) => {};
+  const handleSearch=(searchValue)=>{
+    const value=searchValue.toLowerCase()
+    const filteredUser=users.filter((user)=>{
+      const userName=user.name.toLowerCase()
+      return userName.startsWith(value)
+    })
+    setNewUser(filteredUser)
+  }
 
   return (
     <div className="container">
@@ -33,7 +40,7 @@ const App = () => {
       {error && <p>{error}</p>}
 
       {/* Needs to pass functions from here for state lifting  */}
-      {/* <Search onHandleSearch={} /> */}
+      <Search onHandleSearch={handleSearch} />
       {users && <Users users={newUser} onHandleDeleteUser={handleDeleteUser} />}
     </div>
   );
