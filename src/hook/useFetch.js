@@ -10,20 +10,6 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   const [users, setUsers] = useState([]);
 
-  // const fetchData = async (url) => {
-  //   setIsLoading(true);
-  //   try {
-  //     const response = await fetch(url);
-  //     const data = await response.json();
-  //     setUsers(data);
-  //     setIsLoading(false);
-  //     setError(null);
-  //   } catch (error) {
-  //     setError(error);
-  //     setIsLoading(false);
-  //   }
-  // };
-
   useEffect(() => {
     fetch(url)
       .then((res) => {
