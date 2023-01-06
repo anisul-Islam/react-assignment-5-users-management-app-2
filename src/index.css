@@ -25,7 +25,10 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
+.inputdisin {
+  border-radius: 0.6rem;
+  padding: 0.4rem;
+}
 .title {
   text-align: center;
   margin: 1rem 0;
