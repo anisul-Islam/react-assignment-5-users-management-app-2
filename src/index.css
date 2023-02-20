@@ -25,14 +25,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 .title {
   text-align: center;
   margin: 1rem 0;
   color: white;
   font-size: 2rem;
 }
-
 .users {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -49,6 +47,10 @@ body {
   padding: 0.6rem;
   border-radius: 0.6rem;
   transition: all 0.3s;
+}
+input{
+  padding-left: 2rem;
+  width: 10rem;
 }
 .user:hover {
   background-color: black;
