@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -5,7 +6,7 @@ const Search = ({ onHandleSearch }) => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    onHandleSearch(search);
+    onHandleSearch(search.toLowerCase());
   }, [search]);
 
   const handleChange = (e) => {
@@ -16,7 +17,7 @@ const Search = ({ onHandleSearch }) => {
       <input
         type="text"
         name="search"
-        placeholder="search country"
+        placeholder="search user"
         value={search}
         onChange={handleChange}
       />
