@@ -1,11 +1,12 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const Search = ({ onHandleSearch }) => {
-  const [search, setSearch] = useState('');
+const Search = (props) => {
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    onHandleSearch(search);
+    props.onHandleSearch(search);
   }, [search]);
 
   const handleChange = (e) => {
