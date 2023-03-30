@@ -26,7 +26,16 @@ const App = () => {
 
   // Task 4: search user
   // get the text from Search.js
-  // const handleSearch = (searchText) => {};
+  const handleSearch = (searchText) => {
+    const input = searchText.toLowerCase();
+    if (data) {
+      const newUsers = data.filter((user) => {
+        const userName = user.name.toLowerCase();
+        return userName.startsWith(input);
+      });
+      setUsersCopy(newUsers);
+    }
+  };
 
   return (
     <div className="container">
@@ -35,8 +44,7 @@ const App = () => {
       {error && <p>{error}</p>}
 
       {/* Needs to pass functions from here for state lifting  */}
-      {/* <Search onHandleSearch={} /> */}
-      {/* <Search /> */}
+      <Search onHandleSearch={handleSearch} />
       {usersCopy && <Users users={usersCopy} onHandleDeleteUser={handleDeleteUser} />}
     </div>
   );
