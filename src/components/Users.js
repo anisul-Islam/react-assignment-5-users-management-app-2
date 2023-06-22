@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 import User from './User';
 
 const Users = (props) => {
+  const handleDeleteUser = (id) => {
+    props.onHandleDeleteUser(id);
+  };
   return (
     <section className="users">
       {props.users.map((user) => (
-        <User key={user.id} {...user} onHandleDeleteUser={props.onHandleDeleteUser} />
+        <User key={user.id} {...user} onHandleDeleteUser={handleDeleteUser} />
       ))}
     </section>
   );
