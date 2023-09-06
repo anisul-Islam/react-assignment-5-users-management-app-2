@@ -8,7 +8,7 @@
 - event handling
 - state lifting
 
-### [Click here to see the project demo](https://users-mgt-app-2.netlify.app/)
+###  [Rimon-users-Management-app](https://rimon-usersmanagement-app.netlify.app/)
 
 ### Assignment steps:
 
