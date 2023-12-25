@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 const Search = ({ onHandleSearch }) => {
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    onHandleSearch(search);
-  }, [search]);
-
+  
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
+
+  useEffect(() => {
+    onHandleSearch(search);
+  }, [search]);
+  
   return (
     <div>
       <input
