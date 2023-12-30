@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const User = ({ id, name, email, phone, onHandleDeleteUser }) => {
   const handleDelete = (id) => {
@@ -10,13 +10,14 @@ const User = ({ id, name, email, phone, onHandleDeleteUser }) => {
       <h3>{id}</h3>
       <h3 className="user__name">{name}</h3>
       <p className="user__email">{email}</p>
-      <a className="user__phone" href={'tel:+' + phone}>
+      <a className="user__phone" href={"tel:+" + phone}>
         {phone}
       </a>
       <button
         onClick={() => {
           handleDelete(id);
-        }}>
+        }}
+      >
         Delete
       </button>
     </article>
@@ -28,7 +29,7 @@ User.propTypes = {
   name: PropTypes.string,
   email: PropTypes.string,
   phone: PropTypes.string,
-  onHandleDeleteUser: PropTypes.func
+  onHandleDeleteUser: PropTypes.func,
 };
 
 export default User;
