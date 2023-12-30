@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 const Search = ({ onHandleSearch }) => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
+
+  const handleChange = (e) => {
+    // alert(e.target.value);
+    setSearch(e.target.value);
+  };
 
   useEffect(() => {
     onHandleSearch(search);
   }, [search]);
-
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
   return (
     <div>
       <input
@@ -25,7 +26,7 @@ const Search = ({ onHandleSearch }) => {
 };
 
 Search.propTypes = {
-  onHandleSearch: PropTypes.func
+  onHandleSearch: PropTypes.func,
 };
 
 export default Search;

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Search from "./components/Search";
 import Users from "./components/Users";
 import useFetch from "./hook/useFetch";
-import { data, isLoading, error } from "./hook/useFetch";
 
 const App = () => {
   // Task 2: use custom hook
@@ -31,7 +30,18 @@ const App = () => {
 
   // Task 4: search user
   // get the text from Search.js
-  const handleSearch = (searchText) => {};
+  const handleSearch = (searchText) => {
+    const lowerCaseSearchText = searchText.toLowerCase();
+    if (lowerCaseSearchText === "") {
+      setUsers(data || []);
+    } else {
+      // Otherwise, filter users based on the search text
+      const filteredUsers = users.filter((user) =>
+        user.name.toLowerCase().includes(lowerCaseSearchText)
+      );
+      setUsers(filteredUsers);
+    }
+  };
 
   return (
     <div className="container">
@@ -40,7 +50,7 @@ const App = () => {
       {error && <p>{error}</p>}
 
       {/* Needs to pass functions from here for state lifting  */}
-      {/* <Search onHandleSearch={} /> */}
+      <Search onHandleSearch={handleSearch} />
       {!isLoading && !error && (
         <Users users={users} onHandleDeleteUser={handleDeleteUser} />
       )}
